@@ -1,2 +1,6 @@
 .github/prompts/
 .github/workflows/
+tests/
+out/
+.vscode/
+.DS_Store

@@ -69,6 +69,15 @@ public class Portfolio implements Observable<String> {
         return sorted;
     }
 
+    public void revalueAll(PricingStrategy strategy) {
+        for (Position p : positions) {
+            Instrument instrument = p.getInstrument();
+            double fairValue = strategy.calculateFairValue(instrument);
+            instrument.updatePrice(fairValue);
+        }
+        notifyObservers("REVALUED: " + strategy.strategyName());
+    }
+    
     public Map<String, Double> allocationByAssetClass() {
         Map<String, Double> allocation = new HashMap<>();
         double totalValue = totalMarketValue();
