@@ -21,6 +21,11 @@ public class Bond extends Instrument {
         return "FIXED_INCOME";
     }
 
+    @Override
+    public void accept(InstrumentVisitor visitor) {
+        visitor.visit(this);
+    }
+
     public double annualCouponPayment(int units) {
         return units * getCurrentPriceValue() * couponRate / 100.0;
     }

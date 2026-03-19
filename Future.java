@@ -13,6 +13,11 @@ public class Future extends Derivative {
         return 8.5;
     }
 
+    @Override
+    public void accept(InstrumentVisitor visitor) {
+        visitor.visit(this);
+    }
+
     public double getContractSize() {
         return contractSize;
     }
