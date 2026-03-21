@@ -4,3 +4,4 @@ tests/
 out/
 .vscode/
 .DS_Store
+LocalGrader.java
