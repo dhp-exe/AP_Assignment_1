@@ -1,4 +1,5 @@
 import java.time.LocalDateTime;
+import java.util.Locale;
 
 public abstract class Instrument implements Tradeable, Priceable {
     private final String symbol;
@@ -64,6 +65,10 @@ public abstract class Instrument implements Tradeable, Priceable {
 
     @Override
     public String toString() {
-        return getClass().getSimpleName() + " [symbol=" + symbol + ", price=" + currentPrice + ", risk=" + riskScore() + "]";
+        return getClass().getSimpleName()
+                + " [symbol=" + symbol
+                + ", price=" + String.format(Locale.US, "%.2f", currentPrice)
+                + ", risk=" + String.format(Locale.US, "%.2f", riskScore())
+                + "]";
     }
 }

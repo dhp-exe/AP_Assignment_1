@@ -1,3 +1,5 @@
+import java.util.Locale;
+
 public class Position {
     private final Instrument instrument;
     private int quantity;
@@ -44,6 +46,10 @@ public class Position {
 
     @Override
     public String toString() {
-        return "Position[symbol=" + instrument.getSymbol() + ", quantity=" + quantity + ", avgCost=" + averageCostBasis + "]";
+        return "Position[symbol=" + instrument.getSymbol()
+                + ", qty=" + quantity
+                + ", value=" + String.format(Locale.US, "%.2f", marketValue())
+                + ", pnl=" + String.format(Locale.US, "%.2f", unrealizedPnL())
+                + "]";
     }
 }
